@@ -1,3 +1,4 @@
+__author__ = 'alexcomu'
 from mrjob.job import MRJob
 # For each Age -> Avarage of friends
 # src: utils folder
@@ -8,7 +9,7 @@ from mrjob.job import MRJob
 # How to Run:
 # python filename.py CSV-SOURCE.csv > result.txt
 
-class MRRatingCounter(MRJob):
+class MRAvarageFriends(MRJob):
 
     def mapper(self, key, value):
         # Extract ages and number of friends
@@ -26,4 +27,4 @@ class MRRatingCounter(MRJob):
 
 
 if __name__ == '__main__':
-    MRRatingCounter.run()
+    MRAvarageFriends.run()

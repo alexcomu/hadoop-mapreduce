@@ -9,7 +9,7 @@ We need:
 	- MrJob (pip install mrjob)
 	- Download MovieData DB (100K) http://grouplens.org/datasets/movielens/ 
 	- Put the unzip folder into src-movies folder
-	
+
 
 Check -> https://github.com/alexcomu/big-data-basics to read a simple introduction on MapReduce and Hadoop.
 

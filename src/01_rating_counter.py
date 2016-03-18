@@ -1,3 +1,4 @@
+__author__ = 'alexcomu'
 from mrjob.job import MRJob
 
 # Rating Counter
