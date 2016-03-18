@@ -1,11 +1,15 @@
 __author__ = 'alexcomu'
 from mrjob.job import MRJob
+import re
 
 # Word frequency from book
 # Dummy Version
 # File: 04_book.txt
 
-class MRWordFrequency(MRJob):
+# regular expression used to identify word
+WORD_REGEXP = re.compile(r"[\w']+")
+
+class MRWordFrequencyDummyClass(MRJob):
 
     def mapper(self, _, line):
         words = line.split()
@@ -15,6 +19,18 @@ class MRWordFrequency(MRJob):
     def reducer(self, word, occurences):
         yield word, sum(occurences)
 
+class MRWordFrequencyBetterWay(MRJob):
+
+    def mapper(self, _, line):
+        # use regex instead simple split
+        words = WORD_REGEXP.findall(line)
+        for w in words:
+            yield w.lower(), 1
+
+    def reducer(self, word, occurences):
+        yield word, sum(occurences)
+
 
 if __name__ == '__main__':
-    MRWordFrequency.run()
+    MRWordFrequencyBetterWay.run()
+    #MRWordFrequencyDummyClass.run()
