@@ -42,3 +42,12 @@ Src file:
 How to Run:
 
      $ python filename.py CSV-SOURCE.csv > result.txt
+     
+     
+### 04_word_frequency.py
+
+Calculate the word frequency from a book source.
+
+How to Run:
+
+     $ python filename.py CSV-SOURCE.csv > result.txt
