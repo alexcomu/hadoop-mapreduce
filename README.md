@@ -11,7 +11,7 @@ We need:
 	- Put the unzip folder into src-movies folder
 	
 
-Check -> https://github.com/alexcomu/big-data-basics for read a simple introduction on MapReduce and Hadoop
+Check -> https://github.com/alexcomu/big-data-basics to read a simple introduction on MapReduce and Hadoop.
 
 
 
