@@ -31,3 +31,14 @@ How to Run:
 	$ python filename.py CSV-SOURCE.csv > result.txt
 
 
+### 03_temperature_extreme.py
+
+Check for each location the minimum or maximum temperature.
+
+Src file:
+
+     03_temperature.csv
+
+How to Run:
+
+     $ python filename.py CSV-SOURCE.csv > result.txt
