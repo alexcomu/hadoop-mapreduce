@@ -28,7 +28,7 @@ Calculate For each Age the Avarage of friends. Data (csv) Structure:
 
 How to Run:
 
-	$ python filename.py CSV-SOURCE.csv > result.txt
+	$ python src/02_avarage_friends.py CSV-SOURCE.csv > result.txt
 
 
 ### 03_temperature_extreme.py
@@ -41,7 +41,7 @@ Src file:
 
 How to Run:
 
-     $ python filename.py CSV-SOURCE.csv > result.txt
+     $ python src/03_temperature_extreme.py CSV-SOURCE.csv > result.txt
      
      
 ### 04_word_frequency.py
@@ -50,4 +50,4 @@ Calculate the word frequency from a book source.
 
 How to Run:
 
-     $ python filename.py CSV-SOURCE.csv > result.txt
+     $ python src/04_word_frequency.py CSV-SOURCE.csv > result.txt
