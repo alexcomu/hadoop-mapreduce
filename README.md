@@ -51,3 +51,14 @@ Calculate the word frequency from a book source.
 How to Run:
 
      $ python src/04_word_frequency.py CSV-SOURCE.csv > result.txt
+
+### 04_word_frequency_orderBy_frequency.py
+
+Calculate word frequency and then order the list by frequency using 2 MapReduce Jobs in series.
+
+The Input of the second job will be the output of the first one, so the second Map function will sort the result of the first reducer by occurrences and the second Reducer will only print the result.
+
+How to Run:
+
+     $ python src/04_word_frequency_orderBy_frequency.py CSV-SOURCE.csv > result.txt
+
