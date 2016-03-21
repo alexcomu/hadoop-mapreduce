@@ -76,3 +76,11 @@ How to Run:
 
 Is like embedding reducer part into mapping function to have more efficient processes. 
 Check the example "06_combiner_example1.py"! Is quite useful on elastic map reduce to do some reduction for improvements
+
+## Advanced MapReduce - Example
+
+### 01_most_rated_movie
+
+Count occurrences of each movie rating from movie DB and find the most rated movie.
+
+
