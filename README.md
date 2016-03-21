@@ -83,4 +83,10 @@ Check the example "06_combiner_example1.py"! Is quite useful on elastic map redu
 
 Count occurrences of each movie rating from movie DB and find the most rated movie.
 
+### 02_quick_lookup
 
+Add to the previous example the name of the movie, readed from u.item file using **configure_options** and **reducer_init**!
+
+How to Run:
+
+     $ python src/02-advanced-mapreduce/02_quick_lookup.py --items=PATH-TO-u.ITEM PATH-TO-u.DATA > result.txt
