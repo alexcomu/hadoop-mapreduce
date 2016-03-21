@@ -62,3 +62,12 @@ How to Run:
 
      $ python src/04_word_frequency_orderBy_frequency.py CSV-SOURCE.csv > result.txt
 
+### 05_total_spend_by_customer.py
+
+For each customer from an input file (05_customer_order.csv) extract how much he spent.
+
+How to Run:
+
+     $ python src/05_total_spend_by_customer.py CSV-SOURCE.csv > result.txt
+     
+     
