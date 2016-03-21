@@ -9,8 +9,8 @@ class MRRatingCounter(MRJob):
         (userID, movieID, rating, timestamp) = value.split('\t')
         yield rating, 1
 
-    def reducer(self, rating, occurences):
-        yield rating, sum(occurences)
+    def reducer(self, rating, occurrences):
+        yield rating, sum(occurrences)
 
 
 if __name__ == '__main__':

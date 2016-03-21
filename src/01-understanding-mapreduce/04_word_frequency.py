@@ -9,6 +9,7 @@ import re
 # regular expression used to identify word
 WORD_REGEXP = re.compile(r"[\w']+")
 
+
 class MRWordFrequencyDummyClass(MRJob):
 
     def mapper(self, _, line):
@@ -16,8 +17,9 @@ class MRWordFrequencyDummyClass(MRJob):
         for w in words:
             yield w.lower(), 1
 
-    def reducer(self, word, occurences):
-        yield word, sum(occurences)
+    def reducer(self, word, occurrences):
+        yield word, sum(occurrences)
+
 
 class MRWordFrequencyBetterWay(MRJob):
 
@@ -27,8 +29,8 @@ class MRWordFrequencyBetterWay(MRJob):
         for w in words:
             yield w.lower(), 1
 
-    def reducer(self, word, occurences):
-        yield word, sum(occurences)
+    def reducer(self, word, occurrences):
+        yield word, sum(occurrences)
 
 
 if __name__ == '__main__':

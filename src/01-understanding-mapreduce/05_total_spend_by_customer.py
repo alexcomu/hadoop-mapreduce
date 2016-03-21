@@ -47,7 +47,7 @@ class MRTotalSpenDByCustomerOrdered(MRJob):
 
     def reducer_output(self, orders_amount, customer):
         for user in customer:
-            yield orders_amount, user
+            yield user, orders_amount
 
 
 if __name__ == '__main__':

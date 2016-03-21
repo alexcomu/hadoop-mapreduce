@@ -14,7 +14,7 @@ WORD_REGEXP = re.compile(r"[\w']+")
 class MRWordFrequencyCount(MRJob):
 
     def steps(self):
-        # 2 differents steps
+        # 2 steps
         return [
             MRStep(mapper=self.mapper_get_words,
                    reducer=self.reducer_count_words),
