@@ -7,7 +7,7 @@ from mrjob.step import MRStep
 
 # Process:
 # Apply first mapping to map movie and occurrences
-# First reducer: Prepare a list of couple (Occurrences, movieID)
+# First reducer: Prepare a list of tuple (Occurrences, movieID)
 
 # Example:
 # [(1,1), (2,3), (3,2)]
@@ -29,11 +29,11 @@ class MRRatingCounter(MRJob):
         yield movieID, 1
 
     def reducer_movie_rating(self, movieID, occurrences):
-        # prepare a list of couple
+        # prepare a list of tuple
         yield None, (sum(occurrences), movieID)
 
     def reducer_output(self, _, values):
-        # max value from th queue of couple
+        # max value from th queue of tuple
         yield max(values)
 
 

@@ -90,3 +90,22 @@ Add to the previous example the name of the movie, readed from u.item file using
 How to Run:
 
      $ python src/02-advanced-mapreduce/02_quick_lookup.py --items=PATH-TO-u.ITEM PATH-TO-u.DATA > result.txt
+
+## Superhero Social Network
+
+### Most Popular Superhero
+
+We want find the most popular superhero from a source data like this:
+
+    SuperHeroID1 Friend1 Friend2 ...
+    SuperHeroID2 Friend1 Friend2 ...
+    SuperHeroID1 Friend1 Friend2 ...
+
+Process:
+
+- Count # of friends per character, per line
+- Aggregate per character
+- Mapper to evaluate the maximum value (using tuple)
+- Find the max value
+
+There are 2 examples **09_most_popular_superhero.py**, check it out!
