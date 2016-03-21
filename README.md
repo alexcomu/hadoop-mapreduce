@@ -109,3 +109,7 @@ Process:
 - Find the max value
 
 There are 2 examples **09_most_popular_superhero.py**, check it out!
+
+How to run:
+
+    $ python src/02-advanced-mapreduce/09_most_popular_superhero.py utils/09_Marvel-Graph.txt --names=utils/09_Marvel-Names.txt
