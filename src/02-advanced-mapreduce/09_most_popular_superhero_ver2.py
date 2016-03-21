@@ -4,10 +4,10 @@ from mrjob.step import MRStep
 
 # In this example I'll use the mapper_init to prepare my dictionary of names to resolve from ID the superhero name.
 
-class MostPopularSuperHero(MRJob):
+class MRMostPopularSuperHero(MRJob):
 
     def configure_options(self):
-        super(MostPopularSuperHero, self).configure_options()
+        super(MRMostPopularSuperHero, self).configure_options()
         self.add_file_option('--names', help='Path to Marvel-names.txt')
 
     def steps(self):
@@ -38,7 +38,7 @@ class MostPopularSuperHero(MRJob):
     def load_name_dictionary(self):
         self.heroNames = {}
 
-        with open("Marvel-names.txt") as f:
+        with open('09_Marvel-Names.txt') as f:
             for line in f:
                 fields = line.split('"')
                 heroID = int(fields[0])

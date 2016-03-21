@@ -23,14 +23,14 @@ class MRMostPopularSuperHero(MRJob):
 
     #step 1
     def mapper_superhero_friends(self, _, line):
-        splitted = line.split(" ")
+        splitted = line.split()
         yield splitted[0], len(splitted)-1
 
     def reducer_init(self):
         self.superhero_names = {}
         with open('09_Marvel-Names.txt') as f:
             for line in f:
-                fields = line.split('"')
+                fields = line.split()
                 self.superhero_names[fields[0]] = " ".join(fields[1:])
             # Alternartive
             # for line in f:
