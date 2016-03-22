@@ -113,3 +113,31 @@ There are 2 examples **09_most_popular_superhero.py**, check it out!
 How to run:
 
     $ python src/02-advanced-mapreduce/09_most_popular_superhero.py utils/09_Marvel-Graph.txt --names=utils/09_Marvel-Names.txt
+    
+    
+## Degrees of Separation: Breadth-First Search
+
+Degree of separation between heroes! BFS: Breadth-First Search -> imagine to have a graph of characters, where circle = character and arc = connection. What is the distance between of 2 characters? Check the examples!
+
+Source: https://en.wikipedia.org/wiki/Breadth-first_search
+
+We’ll use the Marvel DB file, following this steps:
+
+### Represent each line as a BFS Node, with color and distance
+
+From
+
+     $ HeroID Friend1 Friend2
+
+To
+
+     $ HeroID | Friends List | Distance | Color
+
+Assuming distance: 9999 -> Infinite and color: WHITE / BLACK except for the starting node (we’re calculating the degree of separation from the first Hero). Is a continuos process of several iterations: INTPU -> OUTPUT -> INPUT -> OUTPUT -> … Using file write / read at each iterations.
+
+We’ll use a counter  to indicate how many times we hit the single character we’re looking for. Any mapper and any reducer can increment the counter, this is very important.
+
+Steps:
+
+     - Create a new file with the correct BFS format (10_process_Marvel.py) starting from an HeroID
+     - Use MapReduce to extract what we are looking for!
