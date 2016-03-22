@@ -125,12 +125,10 @@ We’ll use the Marvel DB file, following this steps:
 
 ### Represent each line as a BFS Node, with color and distance
 
-From
-
+From:
      $ HeroID Friend1 Friend2
 
-To
-
+To:
      $ HeroID | Friends List | Distance | Color
 
 Assuming distance: 9999 -> Infinite and color: WHITE / BLACK except for the starting node (we’re calculating the degree of separation from the first Hero). Is a continuos process of several iterations: INTPU -> OUTPUT -> INPUT -> OUTPUT -> … Using file write / read at each iterations.
@@ -140,4 +138,15 @@ We’ll use a counter  to indicate how many times we hit the single character we
 Steps:
 
      - Create a new file with the correct BFS format (10_process_Marvel.py) starting from an HeroID
+     - python src/03-degrees-of-separation/10_process_Marvel.py HEROID
      - Use MapReduce to extract what we are looking for!
+     - python src/03-degrees-of-separation/11_degrees_separation.py --target=100 src/03-degrees-of-separation/BFS-iteration-0.txt > src/03-degrees-of-separation/BFS-iteration-1.txt
+     - python src/03-degrees-of-separation/11_degrees_separation.py --target=100 src/03-degrees-of-separation/BFS-iteration-1.txt > src/03-degrees-of-separation/BFS-iteration-2.txt
+     - python src/03-degrees-of-separation/11_degrees_separation.py --target=100 src/03-degrees-of-separation/BFS-iteration-2.txt > src/03-degrees-of-separation/BFS-iteration-3.txt
+     - ....
+     - Until we received the result!
+     
+     
+     
+     
+   
