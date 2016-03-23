@@ -146,7 +146,7 @@ Steps:
      - ....
      - Until we received the result!
      
-     
-     
-     
-   
+## Find Similar Movies Based on Rating with MapReduce
+
+### Movie recommendation
+
