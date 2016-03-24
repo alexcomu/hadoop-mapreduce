@@ -150,3 +150,39 @@ Steps:
 
 ### Movie recommendation
 
+We'll use the MovieLands Dataset following this steps:
+ 
+    - Find every pair of movies that were watched by tha same person
+    - Measure the similarity of their rating across all users who watched both
+    - Sort by movie, then by similarity strength
+
+### MapReduce Problem
+
+Map reduce problem, 2 steps:
+
+    Mapper: Extract User -> (Movie, Rating)
+    Reducer: Groups all movie, rating pairs by user
+
+    Mapper: Output all movies viewed by the same user (movie1, movie2) -> (rating1, rating2)
+    Reducer: Compute rating-based similarity between each movie pair (movie1, movie2) -> (similarity, number of users who saw both)
+
+    Mapper: Make movie name, similarity score the sorting key
+    Reducer: Display the final sorted output
+    
+    Output: -> Movie sorted by Name with a list of movie ordered by similaity
+    Format:  "MOVIE_NAME" ["SIMILAR_MOVIE", "SIMILAR_POINT (From 0 to 1)", "Number of people who votes both"]
+    Example: "Start Wars 1977" ["Empire Strikes Back 1980", 0.989552207, 345]
+     
+    
+How to run:
+    $ python 12_find_similar_movie.py --items=src-files/ml-100k/u.item src-files/ml-100k/u.data > sims.txt
+    
+## How can Improve it?
+
+Some ideas:
+
+    - Discard bad ratings
+    - Try different metrics (Pearson Correlation Coefficient, Jaccard Coefficient, Conditional Probability)
+    - Adjust the thresholds for minimum co-rates or minimum score
+    - Invent a new similarity metric that take the number of co-raters into account
+    - Use genre information in u.items to boost scores from movies in the same genre
