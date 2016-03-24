@@ -1,4 +1,4 @@
-# Hadoop and Map Reduce
+# Map Reduce
 
 ## Requirements
 
@@ -177,7 +177,7 @@ Map reduce problem, 2 steps:
 How to run:
     $ python 12_find_similar_movie.py --items=src-files/ml-100k/u.item src-files/ml-100k/u.data > sims.txt
     
-## How can Improve it?
+### How can Improve it?
 
 Some ideas:
 
@@ -186,3 +186,31 @@ Some ideas:
     - Adjust the thresholds for minimum co-rates or minimum score
     - Invent a new similarity metric that take the number of co-raters into account
     - Use genre information in u.items to boost scores from movies in the same genre
+
+
+# Apache Hadoop 
+
+Hadoop is a framework built with Java for distributing computing. It's what lets you run MapReduce jobs on a cluster of cheap computers,
+ instead of just one, offering redundancy and scalability.
+
+Remember: alwsays assume that the script will works on different computers! This is very important, so pay attention!
+
+## HDFS: Hadoop Distributed File System
+
+https://en.wikipedia.org/wiki/Apache_Hadoop
+http://hortonworks.com/hadoop/hdfs/
+http://....
+
+## Hadoop YARN
+
+Hadoop YARN is how MapReduce V2 manages resources across a cluster, it's part of hadoop!
+
+Check the website for more information!
+
+https://hadoop.apache.org/docs/r2.7.1/hadoop-yarn/hadoop-yarn-site/YARN.html
+
+CLIENT -- Resource Manager --> Node1 Manager --> Node2 Manager --> Node3 Manager
+
+YARN is a funamental part of Hadoop, It works with HDFS to get its data, but YARN is how the work on MapReduce job gets split up anda managed.
+
+
