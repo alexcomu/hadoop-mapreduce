@@ -247,3 +247,4 @@ Or is possible also from AWS Dashboard (be sure to moved you location to UE East
     - On S3 section you can check the logs
     - On EMR you can check the status of the jobs
 
+More detail here: https://pythonhosted.org/mrjob/guides/emr-quickstart.html

@@ -1,6 +1,8 @@
 This is just an example of mrjob configuration file.
 It should be located on ~/.mrjob.conf
 
+More detail here: https://pythonhosted.org/mrjob/guides/emr-quickstart.html
+
 runners:
   emr:
     aws_access_key_id: YOURACCESSKEY
