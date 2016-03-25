@@ -248,3 +248,21 @@ Or is possible also from AWS Dashboard (be sure to moved you location to UE East
     - On EMR you can check the status of the jobs
 
 More detail here: https://pythonhosted.org/mrjob/guides/emr-quickstart.html
+
+## Exercise: Scaled Up!
+
+Let's try with a bigger dataset, 1M entries. Check the file 13_find_similar_movie_large.py. Is just like the 
+exercise 12 but with a simple differents on how we load the movie names and the ratings file (different data format).
+
+Let's try with 20 nodes on EMR!
+
+    $ python 13_find_similar_movie_large.py -r emr --num-ec2-instances=20 --items=src-files/ml-1m/movies.dat src-files/ml-1m/ratings.dat > sims-1ml.txt
+    
+## Be careful
+
+When we'll use multiple nodes we'll have some problems with the sort job due to multiple instances of reducer. So, if we'll use 4 machines, we'll have 4 grouped result sorted. 
+We have to manage manually this problem, for example adding a separated MapReduce job after the end of those steps. 
+ 
+For example, after job **13_find_similar_movie_large.py** we can apply the script **14_starwars_sims.py** to find the hottest results!
+
+    $ python 14_starwars_sims.py sims-1ml.txt > starwars_sims.txt
