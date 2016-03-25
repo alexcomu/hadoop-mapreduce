@@ -1,0 +1,20 @@
+This is just an example of mrjob configuration file.
+It should be located on ~/.mrjob.conf
+
+runners:
+  emr:
+    aws_access_key_id: YOURACCESSKEY
+    aws_secret_access_key: YOURSUPERSECRET
+
+runners:
+  emr:
+    ec2_key_pair: YOURKEYNAME
+    # ~/ and $ENV_VARS allowed here
+    ec2_key_pair_file: /home/yourusername/.ssh/supersecret.pem
+    ssh_tunnel_to_job_tracker: true
+
+runners:
+  emr:
+    ec2_instance_type: c1.medium
+    num_ec2_instances: 5
+    aws_region: eu-west-1
