@@ -231,6 +231,12 @@ To execute our MapReduce job on Amazon we can simply use our terminal:
     $ Multiple instances
     $ python 12_find_similar_movie.py -r emr --num-ec2-instances 4 --items=src-files/ml-100k/u.item src-files/ml-100k/u.data > sims.txt
 
+To use as input / output S3 you can change the input / output target:
+
+    $ python 12_find_similar_movie.py -r emr --num-ec2-instances 4 --items=src-files/ml-100k/u.item s3://YOUR-BUCKET/FOLDERS/u.data --output-dir=s3://YOUR-BUCKET/FOLDERS
+
+## Troubleshooting
+
 Is possible to monitoring the jobs from your terminal:
  
     $ Troubleshooting EMR jobs (subsitute your job ID):
