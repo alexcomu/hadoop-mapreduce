@@ -214,3 +214,30 @@ CLIENT -- Resource Manager --> Node1 Manager --> Node2 Manager --> Node3 Manager
 YARN is a funamental part of Hadoop, It works with HDFS to get its data, but YARN is how the work on MapReduce job gets split up anda managed.
 
 
+# Connect MRJob to Amazon EMR
+
+First of all you need an account on Amazon AWS. When the account is ready you have to follow this steps:
+
+    - Go under section "Security Credentials"
+    - Create new Access Key
+    - Create on your env two new variables
+    - export AWS_ACCESS_KEY_ID=YYY
+    - export AWS_SECRET_ACCESS_KEY=XXX
+    
+To execute our MapReduce job on Amazon we can simply use our terminal:
+
+    $ Single machine (will be very slow!)
+    $ python 12_find_similar_movie.py -r emr --items=src-files/ml-100k/u.item src-files/ml-100k/u.data > sims.txt
+    $ Multiple instances
+    $ python 12_find_similar_movie.py -r emr --num-ec2-instances 4 --items=src-files/ml-100k/u.item src-files/ml-100k/u.data > sims.txt
+
+Is possible to monitoring the jobs from your terminal:
+ 
+    $ Troubleshooting EMR jobs (subsitute your job ID):
+    $ python -m mrjob.tools.emr.fetch_logs --find-failure j-JOBID
+
+Or is possible also from AWS Dashboard (be sure to moved you location to UE East, N. Virginia):
+
+    - On S3 section you can check the logs
+    - On EMR you can check the status of the jobs
+
