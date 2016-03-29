@@ -1,8 +1,7 @@
 __author__ = 'alexcomu'
 from wordcount_ver2 import MRWordFrequencyVer2, MRWordCounter
 from mrjob.protocol import JSONValueProtocol, JSONProtocol
-
-
+import logging, json
 
 TEXT = [
     ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit"],
@@ -26,13 +25,22 @@ TEXT = [
     ["Vivamus", "id", "lacus", "nec", "orci", "tristique", "vulputate"]
 ]
 
+logging.basicConfig(level=logging.INFO)
 
 mr_job = MRWordCounter()
-#mr_job.stdin = [JSONValueProtocol().write(None, line) for line in TEXT]        ## JSONValueProtocol doesn't need a key
+## JSONValueProtocol doesn't need a key
+#mr_job.stdin = [JSONValueProtocol().write(None, line) for line in TEXT]
+
+## JSONProtocol wants also a key
 mr_job.stdin = [JSONProtocol().write(linenum, line) for linenum, line in enumerate(TEXT)]
 
+result = {}
 with mr_job.make_runner() as runner:
         runner.run()
         for line in runner.stream_output():
             key, value = mr_job.parse_output_line(line)
-            print "Line: ", key, " Count: ", value
+            #print "Line: ", key, " Count: ", value
+            result[key] = value
+
+# Print the output in JSON
+print json.dumps(result)
