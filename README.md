@@ -275,18 +275,19 @@ If we imagine to call some MapReduce job from another software we'll use an ista
 
 Our runner for the word_count job will looks like:
 
+```
+from wordcount import MRWordFrequency
 
-    from wordcount import MRWordFrequency
-    
-    mr_job = MRWordFrequency()
-    mr_job.stdin = open('utils/04_book.txt')
-    
-    with mr_job.make_runner() as runner:
-            runner.run()
-            for line in runner.stream_output():
-                key, value = mr_job.parse_output_line(line)
-                print "Word: ", key, " Count: ", value
+mr_job = MRWordFrequency()
+mr_job.stdin = open('utils/04_book.txt')
 
+with mr_job.make_runner() as runner:
+        runner.run()
+        for line in runner.stream_output():
+            key, value = mr_job.parse_output_line(line)
+            print "Word: ", key, " Count: ", value
+```
+    
 The **stdin** is where actually mrjob will receive the input, in this case from a file on my pc. 
 Then the runner will provide back the output through the **stream_output** function, which is a generator that returns a single HadoopStreaming output line,
 so we need to call **parse_output_line** to get back the emitted key and value.
