@@ -3,7 +3,6 @@ from mrjob.job import MRJob
 import re
 
 # Word frequency from book
-# Dummy Version
 # File: 04_book.txt
 
 # regular expression used to identify word
