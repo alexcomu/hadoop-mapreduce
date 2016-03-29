@@ -266,3 +266,35 @@ We have to manage manually this problem, for example adding a separated MapReduc
 For example, after job **13_find_similar_movie_large.py** we can apply the script **14_starwars_sims.py** to find the hottest results!
 
     $ python 14_starwars_sims.py sims-1ml.txt > starwars_sims.txt
+    
+# Programmatically Running Jobs
+
+To run programmatically a job is possible use the **MrJob Runners**, which permit to start the execution and read the output. 
+If we imagine to call some MapReduce job from another software we'll use an istance of Runner that will run the job for us. We can see an example under folder 
+**src/05-mrjob-runners/**.
+
+Our runner for the word_count job will looks like:
+
+
+    from wordcount import MRWordFrequency
+    
+    mr_job = MRWordFrequency()
+    mr_job.stdin = open('utils/04_book.txt')
+    
+    with mr_job.make_runner() as runner:
+            runner.run()
+            for line in runner.stream_output():
+                key, value = mr_job.parse_output_line(line)
+                print "Word: ", key, " Count: ", value
+
+The **stdin** is where actually mrjob will receive the input, in this case from a file on my pc. 
+Then the runner will provide back the output through the **stream_output** function, which is a generator that returns a single HadoopStreaming output line,
+so we need to call **parse_output_line** to get back the emitted key and value.
+
+How to run:
+
+    $ python src/05-mrjob-runners/mrjob_runner.py
+    
+## Return Json
+
+Thanks to our runner is possibile to evaluate the result and create a json / csv as result instead of a simple row. Check the example **mrjob_runner_ver2.py** to see how it's made!

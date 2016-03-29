@@ -6,10 +6,10 @@ import json
 import logging
 logging.basicConfig(level=logging.INFO)
 
-# Run on a persistent JOB FLOW
+# How to run on a persistent JOB FLOW
 #MRJOB_FLOWID = 'JOB-ID'
 
-# Take twitter 'AA' file as input
+# How to take the file as input from S3
 #INPUT_FILE = 's3://.....'
 
 
