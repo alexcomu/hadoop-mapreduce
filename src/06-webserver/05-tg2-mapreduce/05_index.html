@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #chart > div {
+              font: 16px sans-serif;
+              background-color: steelblue;
+              text-align: right;
+              padding: 3px;
+              margin: 2px;
+              color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="choice">
+            <select onchange="load_data(this.options[this.selectedIndex].value)">
+                <option value="1">1 Occurrence</option>
+                <option value="2">2 Occurrences</option>
+                <option value="3">3 Occurrences</option>
+            </select>
+        </div>
+        <div id="chart"></div>
+    </body>
+    <script src="http://mbostock.github.com/d3/d3.js?2.7.2"></script>
+    <script src="/05_script.js"></script>
+    <script>load_data(1);</script>
+</html>
