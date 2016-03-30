@@ -299,3 +299,38 @@ How to run:
 ## Return Json
 
 Thanks to our runner is possibile to evaluate the result and create a json / csv as result instead of a simple row. Check the example **mrjob_runner_ver2.py** to see how it's made!
+
+# Web Server Integration
+
+Folder **06-webserver** contains a collection of examples and how-to related on how integrate map reduce and visualization with a Python simple server. 
+I'm using Turbogears2 (http://turbogears.org) as framework, Jinja2 as template engine (http://jinja.pocoo.org/) and D3js (http://d3js.org) to create simple visualization.
+
+Here a quick resume on each example, you can use the file **requirements.txt** to install what you need.
+
+### 01-simple-server
+
+Is a very dummy version of a simple server made with Python using WSGI.
+
+### 02-tg2-simple-server
+
+As the example before, is a simple server built with Turbogears.
+
+### 03-templating-jinja
+
+In this example is showed how to return through a simple server with TG2 an HTML page correlated with some parameters. 
+There is also a simple javascript file used to draw a line graph to show the data received (In this case CPU usage).
+ 
+### 04-serving-json
+
+Is similar to example 03, but is in real time bro! There is an API on **/data** that response with a json like:
+
+    {
+        usage: 24.4
+    }
+
+I changed the script to retrieve automatically and forever data from the API.
+
+### 05-tg2-mapreduce
+
+This is the most interesting example of how to connect a mapreduce job to a web server. In this case the API will use a custom **mrjob runner** to 
+apply map and reduce wordcount on an defined text. As output will be show the amount of occurrences of each letter in a bar graph using D3js.
